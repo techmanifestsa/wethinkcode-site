@@ -10,8 +10,18 @@
 
           <q-separator />
           <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="text" label="Notification Title" />
-            <q-input square outlined v-model="text" label="Notification Body" />
+            <q-input
+              square
+              outlined
+              v-model="sourcingTextTitle"
+              label="Notification Title"
+            />
+            <q-input
+              square
+              outlined
+              v-model="sourcingTextBody"
+              label="Notification Body"
+            />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -30,8 +40,8 @@
 
           <q-separator />
           <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="text" label="Notification Title" />
-            <q-input square outlined v-model="text" label="Notification Body" />
+            <q-input square outlined v-model="performanceTextTitle" label="Notification Title" />
+            <q-input square outlined v-model="performanceTextBody" label="Notification Body" />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -50,8 +60,8 @@
 
           <q-separator />
           <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="text" label="Notification Title" />
-            <q-input square outlined v-model="text" label="Notification Body" />
+            <q-input square outlined v-model="lmsTextTitle" label="Notification Title" />
+            <q-input square outlined v-model="lmsTextBody" label="Notification Body" />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -70,8 +80,8 @@
 
           <q-separator />
           <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="text" label="Notification Title" />
-            <q-input square outlined v-model="text" label="Notification Body" />
+            <q-input square outlined v-model="studentsTextTitle" label="Notification Title" />
+            <q-input square outlined v-model="studentsTextBody" label="Notification Body" />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -90,8 +100,8 @@
 
           <q-separator />
           <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="text" label="Notification Title" />
-            <q-input square outlined v-model="text" label="Notification Body" />
+            <q-input square outlined v-model="alumniTextTitle" label="Notification Title" />
+            <q-input square outlined v-model="alumniTextBody" label="Notification Body" />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -106,8 +116,22 @@
 
 <script>
 import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "IndexPage",
+
+  sourcingTextTitle: "",
+  sourcingTextBody: "",
+
+  performanceTextTitle: "",
+  performanceTextBody: "",
+
+  lmsTextTitle: "",
+  lmsTextBody: "",
+
+  studentsTextTitle: "",
+  studentsTextBody: "",
+
+  alumniTextTitle: "",
+  alumniTextBody: "",
 });
 </script>
