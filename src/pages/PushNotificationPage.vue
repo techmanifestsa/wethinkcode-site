@@ -9,7 +9,11 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
+          <q-form
+            @submit="sourcingOnSubmit"
+            @reset="sourcingOnReset"
+            class="q-gutter-md q-pa-sm"
+          >
             <q-input
               square
               outlined
@@ -39,9 +43,19 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="performanceTextTitle" label="Notification Title" />
-            <q-input square outlined v-model="performanceTextBody" label="Notification Body" />
+          <q-form @submit="performanceOnSubmit" @reset="performanceOnReset" class="q-gutter-md q-pa-sm">
+            <q-input
+              square
+              outlined
+              v-model="performanceTextTitle"
+              label="Notification Title"
+            />
+            <q-input
+              square
+              outlined
+              v-model="performanceTextBody"
+              label="Notification Body"
+            />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -59,7 +73,7 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
+          <q-form @submit="lmsOnSubmit" @reset="lmsOnReset" class="q-gutter-md q-pa-sm">
             <q-input square outlined v-model="lmsTextTitle" label="Notification Title" />
             <q-input square outlined v-model="lmsTextBody" label="Notification Body" />
 
@@ -79,9 +93,19 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="studentsTextTitle" label="Notification Title" />
-            <q-input square outlined v-model="studentsTextBody" label="Notification Body" />
+          <q-form @submit="studentsOnSubmit" @reset="studentsOnReset" class="q-gutter-md q-pa-sm">
+            <q-input
+              square
+              outlined
+              v-model="studentsTextTitle"
+              label="Notification Title"
+            />
+            <q-input
+              square
+              outlined
+              v-model="studentsTextBody"
+              label="Notification Body"
+            />
 
             <q-card-actions align="right">
               <q-btn flat label="Submit" type="submit" color="primary" />
@@ -99,8 +123,13 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md q-pa-sm">
-            <q-input square outlined v-model="alumniTextTitle" label="Notification Title" />
+          <q-form @submit="alumniOnSubmit" @reset="alumniOnReset" class="q-gutter-md q-pa-sm">
+            <q-input
+              square
+              outlined
+              v-model="alumniTextTitle"
+              label="Notification Title"
+            />
             <q-input square outlined v-model="alumniTextBody" label="Notification Body" />
 
             <q-card-actions align="right">
@@ -115,23 +144,79 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+
 export default defineComponent({
-  name: "IndexPage",
+  name: "PushNotificationPage",
 
-  sourcingTextTitle: "",
-  sourcingTextBody: "",
+  setup() {
+    const sourcingTextTitle= ref(null)
+    const sourcingTextBody = ref(null)
 
-  performanceTextTitle: "",
-  performanceTextBody: "",
+    const performanceTextTitle = ref(null)
+    const performanceTextBody = ref(null)
 
-  lmsTextTitle: "",
-  lmsTextBody: "",
+    const lmsTextTitle = ref(null)
+    const lmsTextBody = ref(null)
 
-  studentsTextTitle: "",
-  studentsTextBody: "",
+    const studentsTextTitle = ref(null)
+    const studentsTextBody = ref(null)
 
-  alumniTextTitle: "",
-  alumniTextBody: "",
+    const alumniTextTitle = ref(null)
+    const alumniTextBody = ref(null)
+    return {
+      sourcingTextTitle,
+      sourcingTextBody,
+
+      performanceTextTitle,
+      performanceTextBody,
+
+      lmsTextTitle,
+      lmsTextBody,
+
+      studentsTextTitle,
+      studentsTextBody,
+
+      alumniTextTitle,
+      alumniTextBody,
+
+      sourcingOnSubmit() {
+        console.log(sourcingTextTitle.value + " " + sourcingTextBody.value);
+        console.log("Sourcing Team");
+      },
+      performanceOnSubmit() {
+        console.log(performanceTextTitle.value + " " + performanceTextBody.value);
+        console.log("Sourcing Team");
+      },
+      lmsOnSubmit() {
+        console.log(lmsTextTitle.value + " " + lmsTextBody.value);
+        console.log("Sourcing Team");
+      },
+      studentsOnSubmit() {
+        console.log(studentsTextTitle.value + " " + studentsTextBody.value);
+        console.log("Sourcing Team");
+      },
+      alumniOnSubmit() {
+        console.log(alumniTextTitle.value + " " + alumniTextBody.value);
+        console.log("Sourcing Team");
+      },
+
+      sourcingOnReset() {
+        (sourcingTextTitle.value = null), (sourcingTextBody.value = null);
+      },
+      performanceOnReset() {
+        (performanceTextTitle.value = null), (performanceTextBody.value = null);
+      },
+      lmsOnReset() {
+        (lmsTextTitle.value = null), (lmsTextBody.value = null);
+      },
+      studentsOnReset() {
+        (studentsTextTitle.value = null), (studentsTextBody.value = null);
+      },
+      alumniOnReset() {
+        (alumniTextTitle.value = null), (alumniTextBody.value = null);
+      },
+    };
+  },
 });
 </script>
