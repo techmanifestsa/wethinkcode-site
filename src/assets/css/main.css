@@ -1,0 +1,57 @@
+.wrapper {
+	width: 100%;
+	margin: 0 auto;
+	transition: width .1s;
+}
+
+@media screen and (max-width: 640px) {
+	.home-connect {
+		padding-top: 5rem;
+	}
+
+	.home .home-productivity {
+		min-height: 350px !important;
+	}
+}
+
+@media (min-width: 640px) {
+	.wrapper {
+		width: 100%;
+	}
+
+	.home-connect {
+		padding-top: 10rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.wrapper {
+		width: 720px;
+	}
+
+	.home-connect {
+		padding-top: 15rem;
+	}
+
+	.playground {
+		width: 750px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.wrapper {
+		width: 920px;
+	}
+}
+
+@media (min-width: 1280px) {
+	.wrapper {
+		width: 1024px;
+	}
+}
+
+@media (min-width: 1536px) {
+	.wrapper {
+		width: 1140px;
+	}
+}
