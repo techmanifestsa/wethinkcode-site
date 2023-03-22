@@ -163,8 +163,8 @@ export default defineComponent({
   name: "PushNotificationPage",
 
   setup() {
-    // const host = ref("localhost:3000");
-    const host = ref("wethinkcode-2-l4603293.deta.app")
+    const host = ref("http://localhost:3000");
+    // const host = ref("https://wethinkcode-2-l4603293.deta.app")
 
     const sourcingTextTitle = ref(null);
     const sourcingTextBody = ref(null);
@@ -200,7 +200,7 @@ export default defineComponent({
 
       async sourcingOnSubmit() {
         try {
-          await axios.post("http://" + host.value + "/wethinkcode", {
+          await axios.post(host.value + "/wethinkcode", {
             title: sourcingTextTitle.value,
             body: sourcingTextBody.value,
           });
@@ -210,7 +210,7 @@ export default defineComponent({
       },
       async performanceOnSubmit() {
         try {
-          await axios.post("http://" + host.value + "/wethinkcode", {
+          await axios.post(host.value + "/wethinkcode", {
             title: performanceTextTitle.value,
             body: performanceTextBody.value,
           });
@@ -220,7 +220,7 @@ export default defineComponent({
       },
       async lmsOnSubmit() {
         try {
-          await axios.post("http://" + host.value + "/wethinkcode", {
+          await axios.post(host.value + "/wethinkcode", {
             title: lmsTextTitle.value,
             body: lmsTextBody.value,
           });
@@ -230,7 +230,7 @@ export default defineComponent({
       },
       async studentsOnSubmit() {
         try {
-          await axios.post("http://" + host.value + "/wethinkcode", {
+          await axios.post(host.value + "/wethinkcode", {
             title: studentsTextTitle.value,
             body: studentsTextBody.value,
           });
@@ -240,7 +240,7 @@ export default defineComponent({
       },
       async alumniOnSubmit() {
         try {
-          await axios.post("http://" + host.value + "/wethinkcode", {
+          await axios.post(host.value + "/wethinkcode", {
             title: alumniTextTitle.value,
             body: alumniTextBody.value,
           });
