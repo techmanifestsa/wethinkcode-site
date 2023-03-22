@@ -43,7 +43,11 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="performanceOnSubmit" @reset="performanceOnReset" class="q-gutter-md q-pa-sm">
+          <q-form
+            @submit="performanceOnSubmit"
+            @reset="performanceOnReset"
+            class="q-gutter-md q-pa-sm"
+          >
             <q-input
               square
               outlined
@@ -93,7 +97,11 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="studentsOnSubmit" @reset="studentsOnReset" class="q-gutter-md q-pa-sm">
+          <q-form
+            @submit="studentsOnSubmit"
+            @reset="studentsOnReset"
+            class="q-gutter-md q-pa-sm"
+          >
             <q-input
               square
               outlined
@@ -123,7 +131,11 @@
           </q-card-section>
 
           <q-separator />
-          <q-form @submit="alumniOnSubmit" @reset="alumniOnReset" class="q-gutter-md q-pa-sm">
+          <q-form
+            @submit="alumniOnSubmit"
+            @reset="alumniOnReset"
+            class="q-gutter-md q-pa-sm"
+          >
             <q-input
               square
               outlined
@@ -145,26 +157,32 @@
 
 <script>
 import { defineComponent, ref } from "vue";
+import axios from "axios";
 
 export default defineComponent({
   name: "PushNotificationPage",
 
   setup() {
-    const sourcingTextTitle= ref(null)
-    const sourcingTextBody = ref(null)
+    // const host = ref("localhost:3000");
+    const host = ref("wethinkcode-2-l4603293.deta.app")
 
-    const performanceTextTitle = ref(null)
-    const performanceTextBody = ref(null)
+    const sourcingTextTitle = ref(null);
+    const sourcingTextBody = ref(null);
 
-    const lmsTextTitle = ref(null)
-    const lmsTextBody = ref(null)
+    const performanceTextTitle = ref(null);
+    const performanceTextBody = ref(null);
 
-    const studentsTextTitle = ref(null)
-    const studentsTextBody = ref(null)
+    const lmsTextTitle = ref(null);
+    const lmsTextBody = ref(null);
 
-    const alumniTextTitle = ref(null)
-    const alumniTextBody = ref(null)
+    const studentsTextTitle = ref(null);
+    const studentsTextBody = ref(null);
+
+    const alumniTextTitle = ref(null);
+    const alumniTextBody = ref(null);
     return {
+      host,
+
       sourcingTextTitle,
       sourcingTextBody,
 
@@ -180,25 +198,55 @@ export default defineComponent({
       alumniTextTitle,
       alumniTextBody,
 
-      sourcingOnSubmit() {
-        console.log(sourcingTextTitle.value + " " + sourcingTextBody.value);
-        console.log("Sourcing Team");
+      async sourcingOnSubmit() {
+        try {
+          await axios.post("http://" + host.value + "/wethinkcode", {
+            title: sourcingTextTitle.value,
+            body: sourcingTextBody.value,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       },
-      performanceOnSubmit() {
-        console.log(performanceTextTitle.value + " " + performanceTextBody.value);
-        console.log("Sourcing Team");
+      async performanceOnSubmit() {
+        try {
+          await axios.post("http://" + host.value + "/wethinkcode", {
+            title: performanceTextTitle.value,
+            body: performanceTextBody.value,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       },
-      lmsOnSubmit() {
-        console.log(lmsTextTitle.value + " " + lmsTextBody.value);
-        console.log("Sourcing Team");
+      async lmsOnSubmit() {
+        try {
+          await axios.post("http://" + host.value + "/wethinkcode", {
+            title: lmsTextTitle.value,
+            body: lmsTextBody.value,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       },
-      studentsOnSubmit() {
-        console.log(studentsTextTitle.value + " " + studentsTextBody.value);
-        console.log("Sourcing Team");
+      async studentsOnSubmit() {
+        try {
+          await axios.post("http://" + host.value + "/wethinkcode", {
+            title: studentsTextTitle.value,
+            body: studentsTextBody.value,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       },
-      alumniOnSubmit() {
-        console.log(alumniTextTitle.value + " " + alumniTextBody.value);
-        console.log("Sourcing Team");
+      async alumniOnSubmit() {
+        try {
+          await axios.post("http://" + host.value + "/wethinkcode", {
+            title: alumniTextTitle.value,
+            body: alumniTextBody.value,
+          });
+        } catch (err) {
+          console.log(err);
+        }
       },
 
       sourcingOnReset() {
